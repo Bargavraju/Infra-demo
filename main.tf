@@ -19,8 +19,8 @@ resource "azurerm_resource_group" "rg" {
 
 resource "azurerm_service_plan" "plan" {
   name                   = var.app_service_plan_name
-  location               = var.location
-  resource_group_name    = var.resource_group_name
+  location               = azurerm_resource_group.rg.location
+  resource_group_name    = azurem_resource_group.rg.name
   os_type                = "Windows"
   sku_name               = "${var.app_service_plan_sku_tier}${var.app_service_plan_sku_size}"
   worker_count           = 2
@@ -29,8 +29,8 @@ resource "azurerm_service_plan" "plan" {
 
 resource "azurerm_windows_web_app" "app" {
   name                = var.web_app_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurem_resource_group.rg.name
   service_plan_id     = azurerm_service_plan.plan.id
 
   https_only                    = true
