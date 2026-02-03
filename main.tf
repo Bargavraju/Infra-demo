@@ -34,6 +34,29 @@ resource "azurerm_windows_web_app" "app" {
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_app_service_plan.plan.id
 
-  site_config {}
+   https_only = true
+  public_network_access_enabled = false
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  site_config {
+    ftps_state                       = "Disabled"
+    health_check_path                = "/health"
+    http2_enabled                    = true
+  }
+
+  logs {
+    detailed_error_messages = true
+    failed_request_tracing  = true
+
+    http_logs {
+      file_system {
+        retention_in_days = 7
+        retention_in_mb   = 35
+      }
+    }
+  }
 }
 

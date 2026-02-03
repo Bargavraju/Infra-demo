@@ -4,7 +4,8 @@ on:
   pull_request:
   push:
     branches: [ main ]
-
+permissions:
+  contents: read
 jobs:
   infra-ci:
     runs-on: ubuntu-latest
