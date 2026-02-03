@@ -39,10 +39,10 @@ resource "azurerm_windows_web_app" "app" {
   }
 
   site_config {
-    ftps_state        = "Disabled"
-    health_check_path = "/health"
-    health_check_eviction_time_in_min  = 10
-    http2_enabled     = true
+    ftps_state                        = "Disabled"
+    health_check_path                 = "/health"
+    health_check_eviction_time_in_min = 10
+    http2_enabled                     = true
   }
 
   logs {
