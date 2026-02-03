@@ -34,7 +34,7 @@ resource "azurerm_windows_web_app" "app" {
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_app_service_plan.plan.id
 
-   https_only = true
+  https_only                    = true
   public_network_access_enabled = false
 
   identity {
@@ -42,9 +42,9 @@ resource "azurerm_windows_web_app" "app" {
   }
 
   site_config {
-    ftps_state                       = "Disabled"
-    health_check_path                = "/health"
-    http2_enabled                    = true
+    ftps_state        = "Disabled"
+    health_check_path = "/health"
+    http2_enabled     = true
   }
 
   logs {
