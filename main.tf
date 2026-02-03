@@ -23,7 +23,7 @@ resource "azurerm_service_plan" "plan" {
   resource_group_name = var.resource_group_name
   os_type             = "Windows"
   sku_name            = "${var.app_service_plan_sku_tier}_${var.app_service_plan_sku_size}"
-  worker_count = 2
+  worker_count        = 2
 }
 
 resource "azurerm_windows_web_app" "app" {
@@ -34,7 +34,7 @@ resource "azurerm_windows_web_app" "app" {
 
   https_only                    = true
   public_network_access_enabled = false
-  client_certificate_enabled   = true
+  client_certificate_enabled    = true
 
   identity {
     type = "SystemAssigned"
@@ -53,11 +53,11 @@ resource "azurerm_windows_web_app" "app" {
   }
 
   auth_settings_v2 {
-    auth_enabled = true
+    auth_enabled     = true
     default_provider = "azureactivedirectory_v2"
 
     active_directory_v2 {
-      client_id = var.aad_client_id
+      client_id            = var.aad_client_id
       tenant_auth_endpoint = "https://login.microsoftonline.com/${var.tenant_id}/v2.0"
     }
 
