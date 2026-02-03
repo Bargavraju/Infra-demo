@@ -28,9 +28,12 @@ resource "azurerm_app_service_plan" "plan" {
   }
 }
 
-resource "azurerm_web_app" "app" {
+resource "azurerm_windows_web_app" "app" {
   name                = var.web_app_name
   location            = var.location
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_app_service_plan.plan.id
+
+  site_config {}
 }
+
