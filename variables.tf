@@ -30,3 +30,12 @@ variable "web_app_name" {
   description = "Name of the Azure Web App"
   type        = string
 }
+
+variable "aad_client_id" {
+  description = "Azure AD App Registration (Application) Client ID"
+  type        = string
+}
+variable "tenant_id" {
+  description = "Azure AD Tenant ID"
+  type        = string
+}

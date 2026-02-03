@@ -32,4 +32,6 @@ jobs:
     - name: Terraform Apply
       env:
         ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        TF_VAR_aad_client_id: ${{ secrets.AZURE_CLIENT_ID }}
+        TF_VAR_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
       run: terraform apply -auto-approve
