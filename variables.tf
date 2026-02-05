@@ -14,17 +14,12 @@ variable "app_service_plan_name" {
   type        = string
 }
 
-variable "app_service_plan_sku_tier" {
+variable "app_service_plan_sku_name" {
   description = "App Service Plan SKU tier"
   type        = string
-  default     = "Basic"
 }
 
-variable "app_service_plan_sku_size" {
-  description = "App Service Plan SKU size"
-  type        = string
-  default     = "B1"
-}
+
 
 variable "web_app_name" {
   description = "Name of the Azure Web App"

@@ -22,7 +22,7 @@ resource "azurerm_service_plan" "plan" {
   location               = azurerm_resource_group.rg.location
   resource_group_name    = azurerm_resource_group.rg.name
   os_type                = "Windows"
-  sku_name               = "${var.app_service_plan_sku_tier}${var.app_service_plan_sku_size}"
+  sku_name               = var.app_service_plan_sku_name
   worker_count           = 2
   zone_balancing_enabled = true
 }
