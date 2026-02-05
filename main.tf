@@ -24,7 +24,6 @@ resource "azurerm_service_plan" "plan" {
   os_type                = "Windows"
   sku_name               = var.app_service_plan_sku_name
   worker_count           = 2
-  zone_balancing_enabled = true
 }
 
 resource "azurerm_windows_web_app" "app" {
