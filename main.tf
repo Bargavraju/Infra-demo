@@ -23,7 +23,7 @@ resource "azurerm_service_plan" "plan" {
   resource_group_name    = azurerm_resource_group.rg.name
   os_type                = "Windows"
   sku_name               = var.app_service_plan_sku_name
-  worker_count           = 2
+  worker_count           = 1
 }
 
 resource "azurerm_windows_web_app" "app" {
@@ -45,7 +45,7 @@ resource "azurerm_windows_web_app" "app" {
     health_check_path                 = "/health"
     health_check_eviction_time_in_min = 10
     http2_enabled                     = true
-    always_on                         = true
+    always_on                         = false
   }
 
   app_settings = {
