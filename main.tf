@@ -18,12 +18,12 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_service_plan" "plan" {
-  name                   = var.app_service_plan_name
-  location               = azurerm_resource_group.rg.location
-  resource_group_name    = azurerm_resource_group.rg.name
-  os_type                = "Windows"
-  sku_name               = var.app_service_plan_sku_name
-  worker_count           = 1
+  name                = var.app_service_plan_name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  os_type             = "Windows"
+  sku_name            = var.app_service_plan_sku_name
+  worker_count        = 1
 }
 
 resource "azurerm_windows_web_app" "app" {
