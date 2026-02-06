@@ -33,7 +33,7 @@ resource "azurerm_windows_web_app" "app" {
   service_plan_id     = azurerm_service_plan.plan.id
 
   https_only                    = true
-  public_network_access_enabled = false
+  public_network_access_enabled = true
   client_certificate_enabled    = true
 
   identity {
