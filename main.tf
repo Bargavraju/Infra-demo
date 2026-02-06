@@ -53,9 +53,9 @@ resource "azurerm_windows_web_app" "app" {
   }
 
   auth_settings_v2 {
-    auth_enabled     = true
-    default_provider = "azureactivedirectory_v2"
-
+    auth_enabled           = true
+    default_provider       = "azureactivedirectory_v2"
+    unauthenticated_action = "AllowAnonymous"
     active_directory_v2 {
       client_id            = var.aad_client_id
       tenant_auth_endpoint = "https://login.microsoftonline.com/${var.tenant_id}/v2.0"
