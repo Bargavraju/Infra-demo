@@ -34,7 +34,7 @@ resource "azurerm_windows_web_app" "app" {
 
   https_only                    = true
   public_network_access_enabled = true
-  client_certificate_enabled    = true
+  client_certificate_enabled    = false
 
   identity {
     type = "SystemAssigned"
@@ -45,7 +45,7 @@ resource "azurerm_windows_web_app" "app" {
     health_check_path                 = "/health"
     health_check_eviction_time_in_min = 10
     http2_enabled                     = true
-    always_on                         = false
+    always_on                         = true
   }
 
   app_settings = {
