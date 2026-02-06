@@ -46,10 +46,16 @@ resource "azurerm_windows_web_app" "app" {
     health_check_eviction_time_in_min = 10
     http2_enabled                     = true
     always_on                         = true
+
+    application_stack {
+      python = "3.11"
+    }
+    app_command_line = "python main.py"
   }
 
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "true"
+    SCM_DO_BUILD_DURING_DEPLOYMENT      = "true"
   }
 
   auth_settings_v2 {
