@@ -50,8 +50,10 @@ resource "azurerm_windows_web_app" "app" {
     application_stack {
       python = "3.11"
     }
+
     app_command_line = "python main.py"
   }
+
 
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "true"
