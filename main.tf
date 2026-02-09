@@ -21,12 +21,12 @@ resource "azurerm_service_plan" "plan" {
   name                = var.app_service_plan_name
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  os_type             = "Windows"
+  os_type             = "Linux"
   sku_name            = var.app_service_plan_sku_name
   worker_count        = 1
 }
 
-resource "azurerm_windows_web_app" "app" {
+resource "azurerm_linux_web_app" "app" {
   name                = var.web_app_name
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -41,23 +41,24 @@ resource "azurerm_windows_web_app" "app" {
   }
 
   site_config {
-    ftps_state                        = "Disabled"
-    health_check_path                 = "/health"
-    health_check_eviction_time_in_min = 10
-    http2_enabled                     = true
-    always_on                         = true
+    # ftps_state                        = "Disabled"
+    # health_check_path                 = "/health"
+    # health_check_eviction_time_in_min = 10
+    # http2_enabled                     = true
+    always_on = true
 
-    # application_stack {
-    #   python_version = "3.11"
-    # }
+    application_stack {
+      python_version = "3.11"
+    }
 
-    # app_command_line = "python main.py"
+    app_command_line = "python main.py"
   }
 
 
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "true"
     SCM_DO_BUILD_DURING_DEPLOYMENT      = "true"
+    PYTHON_VERSION                      = "3.11"
   }
 
   auth_settings_v2 {
