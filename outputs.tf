@@ -9,11 +9,11 @@ output "app_service_plan_name" {
 }
 
 output "web_app_name" {
-  value       = azurerm_windows_web_app.app.name
+  value       = azurerm_linux_web_app.app.name
   description = "Azure Web App name"
 }
 
 output "web_app_default_hostname" {
-  value       = azurerm_windows_web_app.app.default_hostname
+  value       = azurerm_linux_web_app.app.default_hostname
   description = "Web App public URL"
 }
