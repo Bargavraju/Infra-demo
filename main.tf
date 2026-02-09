@@ -47,11 +47,11 @@ resource "azurerm_windows_web_app" "app" {
     http2_enabled                     = true
     always_on                         = true
 
-    application_stack {
-      python = "3.11"
-    }
+    # application_stack {
+    #   python_version = "3.11"
+    # }
 
-    app_command_line = "python main.py"
+    # app_command_line = "python main.py"
   }
 
 
